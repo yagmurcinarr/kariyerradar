@@ -1,0 +1,22 @@
+# Gizli bilgiler
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# dbt
+pipeline/target/
+pipeline/dbt_packages/
+pipeline/logs/
+logs/
+
+# Editör / OS
+.DS_Store
+.vscode/
+.idea/

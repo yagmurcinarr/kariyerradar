@@ -1,0 +1,18 @@
+# --- Veri toplama (Aşama 1) ---
+httpx==0.28.1
+beautifulsoup4==4.12.3
+
+# --- Veritabanı ---
+psycopg[binary]==3.2.3
+
+# --- Yardımcılar ---
+pydantic==2.10.4
+python-dotenv==1.0.1
+
+# --- Geliştirme / kalite ---
+pytest==8.3.4
+ruff==0.8.4
+pre-commit==4.0.1
+
+# Not: dbt, sentence-transformers, fastapi, streamlit gibi paketler
+# ilgili aşamada eklenecek (kurulumu hafif tutmak için).
