@@ -90,16 +90,36 @@ def top_skills(job_skills: pd.DataFrame, job_ids: Iterable[int], n: int = 15) ->
     return counts.reset_index(drop=True)
 
 
-def weekly_counts(jobs: pd.DataFrame) -> pd.DataFrame:
-    """Yayın tarihine göre haftalık ilan sayısı (hafta Pazartesi başlar); boş haftalar 0."""
+def _week_start(dates: pd.Series | pd.Timestamp) -> pd.Series | pd.Timestamp:
+    """Tarihin içinde bulunduğu haftanın Pazartesi'si."""
+    if isinstance(dates, pd.Timestamp):
+        return dates.to_period("W-SUN").start_time
+    return dates.dt.to_period("W-SUN").dt.start_time
+
+
+def weekly_counts(
+    jobs: pd.DataFrame, weeks: int | None = None, today: pd.Timestamp | None = None
+) -> pd.DataFrame:
+    """Yayın tarihine göre haftalık ilan sayısı (hafta Pazartesi başlar); boş haftalar 0.
+
+    weeks verilirse sadece bugünün haftası dahil son `weeks` hafta döner; böylece yıllardır
+    açık birkaç ilan grafiği yıllara yaymaz.
+    """
+    empty = pd.DataFrame(columns=["week_start", "job_count"])
     if jobs.empty:
-        return pd.DataFrame(columns=["week_start", "job_count"])
-    dates = pd.to_datetime(jobs["posted_date"])
-    weeks = dates.dt.to_period("W-SUN").dt.start_time
-    counts = weeks.value_counts().sort_index()
-    full_range = pd.date_range(counts.index.min(), counts.index.max(), freq="W-MON")
-    counts = counts.reindex(full_range, fill_value=0)
-    return pd.DataFrame({"week_start": counts.index, "job_count": counts.to_numpy()})
+        return empty
+    week_of = _week_start(pd.to_datetime(jobs["posted_date"]))
+
+    if weeks is None:
+        start, end = week_of.min(), week_of.max()
+    else:
+        end = _week_start(pd.Timestamp(today) if today is not None else pd.Timestamp.today())
+        start = end - pd.Timedelta(weeks=weeks - 1)
+        week_of = week_of[(week_of >= start) & (week_of <= end)]
+
+    full_range = pd.date_range(start, end, freq="W-MON")
+    counts = week_of.value_counts().reindex(full_range, fill_value=0)
+    return pd.DataFrame({"week_start": full_range, "job_count": counts.to_numpy()})
 
 
 def count_by(jobs: pd.DataFrame, column: str, label: str) -> pd.DataFrame:

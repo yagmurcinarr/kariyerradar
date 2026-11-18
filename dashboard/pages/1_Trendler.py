@@ -53,11 +53,14 @@ with st.expander("Tablo olarak göster"):
     )
 
 # --- Haftalık ilan sayısı -------------------------------------------------------
-st.subheader("Haftalık yayınlanan ilan sayısı")
-st.altair_chart(weekly_line(weekly_counts(scoped)), width="stretch")
+WEEKS = 26
+st.subheader(f"Haftalık yayınlanan ilan sayısı (son {WEEKS} hafta)")
+weekly = weekly_counts(scoped, weeks=WEEKS)
+st.altair_chart(weekly_line(weekly), width="stretch")
+older = len(scoped) - int(weekly["job_count"].sum())
 st.caption(
-    "Yayın tarihi şirketin işe alım sisteminden gelir. Uzun süredir açık ilanlar da sayıldığı için "
-    "eski haftalarda da ilan görünür; veri her gün toplandıkça grafik güncellenir."
+    "Yayın tarihi şirketin işe alım sisteminden gelir."
+    + (f" Hâlâ açık olan {older} ilan {WEEKS} haftadan daha önce yayınlanmış." if older else "")
 )
 
 # --- Şehir ve iş türü -----------------------------------------------------------

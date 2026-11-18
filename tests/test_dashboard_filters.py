@@ -99,6 +99,15 @@ def test_weekly_counts_fills_empty_weeks(jobs) -> None:
     assert result["job_count"].tolist() == [2, 0, 2]
 
 
+def test_weekly_counts_last_n_weeks_window(jobs) -> None:
+    old = pd.DataFrame({"posted_date": pd.to_datetime(["2017-07-01"])})
+    data = pd.concat([jobs[["posted_date"]], old], ignore_index=True)
+    result = weekly_counts(data, weeks=2, today=pd.Timestamp("2026-11-18"))
+    # Sadece 9 ve 16 Kasım haftaları; 2017 ve 2 Kasım haftası pencere dışında
+    assert result["week_start"].dt.strftime("%Y-%m-%d").tolist() == ["2026-11-09", "2026-11-16"]
+    assert result["job_count"].tolist() == [0, 2]
+
+
 def test_count_by(jobs) -> None:
     result = count_by(jobs, "city", "city")
     assert result.iloc[0].to_dict() == {"city": "İstanbul", "job_count": 2}

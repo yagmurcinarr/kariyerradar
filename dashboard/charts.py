@@ -6,7 +6,7 @@ import altair as alt
 import pandas as pd
 
 SERIES_COLOR = "#2a78d6"  # tek seri rengi (açık ve koyu temada okunur)
-BAR_ROW_HEIGHT = 26  # yatay barlarda satır başına piksel
+BAR_ROW_HEIGHT = 30  # yatay barlarda satır başına piksel
 
 
 def horizontal_bar(
@@ -21,7 +21,13 @@ def horizontal_bar(
         alt.Chart(data)
         .mark_bar(color=SERIES_COLOR, cornerRadiusEnd=4, height={"band": 0.7})
         .encode(
-            y=alt.Y(f"{category}:N", sort="-x", title=None, axis=alt.Axis(labelLimit=220)),
+            # labelOverlap=False: Altair sıkışınca etiketleri gizlemesin, her çubuk adlı kalsın
+            y=alt.Y(
+                f"{category}:N",
+                sort="-x",
+                title=None,
+                axis=alt.Axis(labelLimit=220, labelOverlap=False),
+            ),
             x=alt.X(
                 f"{value}:Q",
                 title=value_title,
@@ -36,7 +42,7 @@ def horizontal_bar(
 def weekly_line(data: pd.DataFrame) -> alt.Chart:
     """Haftalık ilan sayısı çizgisi; noktalar ipucu için büyük vuruş alanı sağlar."""
     base = alt.Chart(data).encode(
-        x=alt.X("week_start:T", title=None, axis=alt.Axis(format="%d %b %Y", labelAngle=0)),
+        x=alt.X("week_start:T", title=None, axis=alt.Axis(format="%d.%m", labelAngle=0)),
         y=alt.Y(
             "job_count:Q",
             title="İlan sayısı",

@@ -10,6 +10,10 @@ Türkiye'deki iş ilanlarını her gün toplayan veri hattı ve CV'ye göre ilan
 
 > Ayrıntılı plan ve mimari: [CLAUDE.md](CLAUDE.md)
 
+| Trendler | İlan Arama |
+|---|---|
+| ![Trendler: en çok istenen beceriler](docs/images/trendler.png) | ![İlan Arama: filtreli ilan listesi](docs/images/ilan_arama.png) |
+
 ## Hızlı başlangıç (lokal)
 
 ```bash

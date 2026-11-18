@@ -20,7 +20,11 @@ col1, col2, col3, col4 = st.columns(4)
 col1.metric("Toplam ilan", f"{len(jobs):,}".replace(",", "."))
 col2.metric("Giriş seviyesi ilan", len(entry), help="Staj + yeni mezun + junior")
 col3.metric("Firma", jobs["company_name"].nunique())
-col4.metric("Son güncelleme", last_update.strftime("%d.%m.%Y %H:%M"))
+col4.metric(
+    "Son güncelleme",
+    last_update.strftime("%d.%m %H:%M"),
+    help=f"{last_update:%d.%m.%Y %H:%M} (Türkiye saati)",
+)
 
 st.subheader("En yeni giriş seviyesi ilanlar")
 if entry.empty:
