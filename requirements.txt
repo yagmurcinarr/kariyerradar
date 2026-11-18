@@ -10,6 +10,11 @@ psycopg[binary]==3.2.3
 dbt-core==1.11.17
 dbt-postgres==1.10.2
 
+# --- Dashboard (Aşama 4) ---
+streamlit==1.67.0
+pandas==3.1.1
+altair==6.3.0
+
 # --- Yardımcılar ---
 pydantic==2.10.4
 python-dotenv==1.0.1

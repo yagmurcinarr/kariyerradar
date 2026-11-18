@@ -1,0 +1,7 @@
+# Streamlit Cloud bu dosyayı kullanır (giriş dosyasıyla aynı klasörde olduğu için).
+# Sadece dashboard'un ihtiyacı olanlar: scraper ve dbt bağımlılıkları kurulmaz, açılış hızlı olur.
+streamlit==1.67.0
+pandas==3.1.1
+altair==6.3.0
+psycopg[binary]==3.2.3
+python-dotenv==1.0.1

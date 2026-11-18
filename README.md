@@ -17,6 +17,18 @@ python -m scraper.run --source all   # ilanları topla → raw.job_postings
 python -m pipeline.run_dbt build     # dbt: seed + modeller + testler → staging, marts
 ```
 
+Dashboard:
+
+```bash
+streamlit run dashboard/app.py       # http://localhost:8501
+```
+
+| Sayfa | İçerik |
+|---|---|
+| Genel Bakış | Toplam / giriş seviyesi ilan sayısı, en yeni giriş seviyesi ilanlar |
+| Trendler | En çok istenen 15 beceri, haftalık ilan sayısı, şehir ve iş türü dağılımı |
+| İlan Arama | Şehir, iş türü, beceri ve metin filtreleri; ilana link |
+
 ## Veri modeli (dbt)
 
 | Katman | Tablo | İçerik |
