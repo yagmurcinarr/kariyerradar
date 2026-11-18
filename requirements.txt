@@ -3,7 +3,7 @@ httpx==0.28.1
 beautifulsoup4==4.12.3
 
 # --- Veritabanı ---
-psycopg[binary]==3.2.3
+psycopg[binary]==3.3.9
 
 # --- Dönüşüm (Aşama 2) ---
 # 1.12+ kurulumda GitHub'dan deneysel parser indiriyor; kararlı 1.11 serisinde kalıyoruz.
