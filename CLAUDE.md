@@ -1,11 +1,11 @@
-# StajRadar — Proje Planı ve Mimari
+# KariyerRadar — Proje Planı ve Mimari
 
 > Bu dosya projenin ana rehberidir. Claude Code her oturumda bunu okur.
 > Kural: Her aşamayı sırayla yap, bir aşama "Kabul kriterleri" sağlanmadan sonrakine geçme.
 
 ## 1. Proje Özeti
 
-**StajRadar**, Türkiye'deki staj ve yeni mezun ilanlarını her gün otomatik toplayan,
+**KariyerRadar**, Türkiye'deki iş ilanlarını (staj, yeni mezun ve junior odaklı) her gün otomatik toplayan,
 temizleyen, analiz eden ve kullanıcının CV'sine göre en uygun ilanları öneren
 uçtan uca bir veri ve yapay zekâ sistemidir.
 
@@ -76,7 +76,7 @@ kod okunabilir, iyi belgelenmiş ve tekrar üretilebilir olmalıdır.
 ## 3. Klasör Yapısı
 
 ```
-stajradar/
+kariyerradar/
 ├── CLAUDE.md                 # bu dosya
 ├── README.md                 # vitrin: problem, mimari, ekran görüntüleri, demo linki
 ├── .env.example              # DATABASE_URL, LLM_API_KEY vb. (gerçek .env commit edilmez)
@@ -223,7 +223,7 @@ stajradar/
 ## 8. Başlangıç Prompt'u (Claude Code'a ilk mesaj olarak yapıştır)
 
 ```
-Merhaba! Bu repoda "StajRadar" projesini geliştireceğiz. Proje planı ve mimarisi
+Merhaba! Bu repoda "KariyerRadar" projesini geliştireceğiz. Proje planı ve mimarisi
 CLAUDE.md dosyasında. Lütfen önce CLAUDE.md'yi baştan sona oku.
 
 Şimdi sadece "Aşama 0 — Proje iskeleti"ni yap:

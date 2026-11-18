@@ -1,7 +1,7 @@
 [project]
-name = "stajradar"
+name = "kariyerradar"
 version = "0.1.0"
-description = "Türkiye staj ilanlarını toplayan veri hattı ve CV eşleştirme asistanı"
+description = "Türkiye iş ilanlarını toplayan veri hattı ve CV eşleştirme asistanı"
 requires-python = ">=3.11"
 
 [tool.ruff]

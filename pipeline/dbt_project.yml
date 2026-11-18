@@ -1,7 +1,7 @@
-# StajRadar dbt projesi: raw → staging (temizlik) → marts (analiz tabloları)
-name: stajradar
+# KariyerRadar dbt projesi: raw → staging (temizlik) → marts (analiz tabloları)
+name: kariyerradar
 version: "1.0.0"
-profile: stajradar
+profile: kariyerradar
 
 model-paths: ["models"]
 seed-paths: ["seeds"]
@@ -11,7 +11,7 @@ target-path: target
 clean-targets: [target, dbt_packages]
 
 models:
-  stajradar:
+  kariyerradar:
     staging:
       +schema: staging
       +materialized: view # her sorguda raw'dan taze okunur, yer kaplamaz
@@ -20,7 +20,7 @@ models:
       +materialized: table # dashboard hızlı okusun diye fiziksel tablo
 
 seeds:
-  stajradar:
+  kariyerradar:
     +schema: seeds
     skills:
       +column_types:

@@ -18,7 +18,7 @@ logger = logging.getLogger("scraper")
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="StajRadar ilan toplayıcı")
+    parser = argparse.ArgumentParser(description="KariyerRadar ilan toplayıcı")
     parser.add_argument("--source", required=True, choices=[*COLLECTORS, "all"])
     parser.add_argument("--dry-run", action="store_true", help="Veritabanına yazma")
     parser.add_argument("-v", "--verbose", action="store_true", help="Ayrıntılı log")

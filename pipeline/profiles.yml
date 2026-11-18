@@ -1,6 +1,6 @@
 # Bağlantı bilgileri ortam değişkenlerinden gelir; şifre dosyada durmaz.
 # Bu değişkenleri pipeline/run_dbt.py, .env içindeki DATABASE_URL'den üretir.
-stajradar:
+kariyerradar:
   target: dev
   outputs:
     dev:

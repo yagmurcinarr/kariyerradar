@@ -1,6 +1,7 @@
-# StajRadar
+# KariyerRadar
 
-Türkiye'deki staj ve yeni mezun ilanlarını her gün toplayan veri hattı ve CV'ye göre ilan öneren yapay zekâ asistanı.
+Türkiye'deki iş ilanlarını her gün toplayan veri hattı ve CV'ye göre ilan öneren yapay zekâ asistanı.
+Öğrenci ve yeni mezunlar için staj, yeni mezun ve junior ilanlarına odaklanır.
 
 > 🚧 Geliştirme aşamasında. Ayrıntılı plan: [CLAUDE.md](CLAUDE.md)
 

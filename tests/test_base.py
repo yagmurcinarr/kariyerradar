@@ -86,7 +86,7 @@ def test_rate_limit_waits_between_requests() -> None:
 def test_sends_descriptive_user_agent() -> None:
     collector, calls, _ = make_collector([httpx.Response(200, json=[])])
     collector.get_json("https://example.test/a")
-    assert calls[0].headers["User-Agent"].startswith("StajRadar/")
+    assert calls[0].headers["User-Agent"].startswith("KariyerRadar/")
 
 
 def test_collect_skips_failing_board_and_continues() -> None:

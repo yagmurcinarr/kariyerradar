@@ -18,7 +18,7 @@ from scraper.models import JobPosting
 
 logger = logging.getLogger(__name__)
 
-USER_AGENT = "StajRadar/0.1 (ogrenci portfolyo projesi; Turkiye staj/is ilani analizi)"
+USER_AGENT = "KariyerRadar/0.1 (ogrenci portfolyo projesi; Turkiye is ilani analizi)"
 
 # Bu durum kodları geçicidir; tekrar denemeye değer. 404 gibi diğer hatalar denenmez.
 RETRYABLE_STATUS = {429, 500, 502, 503, 504}

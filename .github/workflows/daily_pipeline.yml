@@ -47,7 +47,7 @@ jobs:
               today = conn.execute(
                   "select count(*) from raw.job_postings where scraped_at::date = current_date"
               ).fetchone()[0]
-          summary = f"### StajRadar\n- Toplam ilan: **{total}**\n- Bugün görülen: **{today}**\n"
+          summary = f"### KariyerRadar\n- Toplam ilan: **{total}**\n- Bugün görülen: **{today}**\n"
           with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as f:
               f.write(summary)
           print(summary)
