@@ -158,7 +158,7 @@ stajradar/
 - **Kabul kriterleri:** `python -m scraper.run --source <site>` çalışınca en az 50 ilan tabloya yazılıyor; ikinci çalıştırmada tekrar kayıt oluşmuyor; parse fonksiyonu için kaydedilmiş örnek HTML ile en az 1 test var.
 
 ### Aşama 2 — dbt dönüşümleri
-- `stg_jobs`: boşlukları temizle, şehir adlarını standartlaştır (ör. "Denizli / Merkezefendi" → şehir=Denizli, ilçe=Merkezefendi), iş türünü `staj | yeni_mezun | diger` olarak sınıflandır.
+- `stg_jobs`: boşlukları temizle, şehir adlarını standartlaştır (ör. "Denizli / Merkezefendi" → şehir=Denizli, ilçe=Merkezefendi), iş türünü `staj | yeni_mezun | junior | diger` olarak sınıflandır (junior: giriş seviyesi odağı için eklendi).
 - `seeds/skills.csv`: ~80 beceri ve eş anlamlıları (ör. `power bi, powerbi`).
 - `bridge_job_skill`: ilan metninde geçen becerileri eşle (önce basit anahtar kelime eşleme; regex ile kelime sınırı kullan).
 - dbt testleri: `unique`, `not_null`, `relationships`.

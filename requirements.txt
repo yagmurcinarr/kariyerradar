@@ -5,6 +5,11 @@ beautifulsoup4==4.12.3
 # --- Veritabanı ---
 psycopg[binary]==3.2.3
 
+# --- Dönüşüm (Aşama 2) ---
+# 1.12+ kurulumda GitHub'dan deneysel parser indiriyor; kararlı 1.11 serisinde kalıyoruz.
+dbt-core==1.11.17
+dbt-postgres==1.10.2
+
 # --- Yardımcılar ---
 pydantic==2.10.4
 python-dotenv==1.0.1

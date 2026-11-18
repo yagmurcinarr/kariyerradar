@@ -1,0 +1,15 @@
+# Bağlantı bilgileri ortam değişkenlerinden gelir; şifre dosyada durmaz.
+# Bu değişkenleri pipeline/run_dbt.py, .env içindeki DATABASE_URL'den üretir.
+stajradar:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: "{{ env_var('DBT_HOST') }}"
+      port: "{{ env_var('DBT_PORT', '5432') | as_number }}"
+      user: "{{ env_var('DBT_USER') }}"
+      password: "{{ env_var('DBT_PASSWORD') }}"
+      dbname: "{{ env_var('DBT_DBNAME') }}"
+      sslmode: "{{ env_var('DBT_SSLMODE', 'prefer') }}"
+      schema: public
+      threads: 4

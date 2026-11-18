@@ -1,0 +1,57 @@
+models:
+  - name: dim_company
+    description: Firma boyutu
+    columns:
+      - name: company_id
+        data_tests: [unique, not_null]
+      - name: company_name
+        data_tests: [not_null]
+
+  - name: dim_skill
+    description: Beceri sözlüğü (seeds/skills.csv)
+    columns:
+      - name: skill_id
+        data_tests: [unique, not_null]
+      - name: skill_name
+        data_tests: [unique, not_null]
+
+  - name: fct_job
+    description: İlan olgu tablosu (her satır bir ilan)
+    columns:
+      - name: job_id
+        data_tests: [unique, not_null]
+      - name: company_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_company')
+                field: company_id
+      - name: city
+        data_tests: [not_null]
+      - name: job_type
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [staj, yeni_mezun, junior, diger]
+
+  - name: bridge_job_skill
+    description: İlan–beceri ilişkisi (ilan metninde geçen beceriler)
+    columns:
+      - name: job_skill_id
+        data_tests: [unique, not_null]
+      - name: job_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('fct_job')
+                field: job_id
+      - name: skill_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_skill')
+                field: skill_id

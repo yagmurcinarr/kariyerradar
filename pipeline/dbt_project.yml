@@ -1,0 +1,30 @@
+# StajRadar dbt projesi: raw → staging (temizlik) → marts (analiz tabloları)
+name: stajradar
+version: "1.0.0"
+profile: stajradar
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+target-path: target
+clean-targets: [target, dbt_packages]
+
+models:
+  stajradar:
+    staging:
+      +schema: staging
+      +materialized: view # her sorguda raw'dan taze okunur, yer kaplamaz
+    marts:
+      +schema: marts
+      +materialized: table # dashboard hızlı okusun diye fiziksel tablo
+
+seeds:
+  stajradar:
+    +schema: seeds
+    skills:
+      +column_types:
+        case_sensitive: boolean
+
+flags:
+  send_anonymous_usage_stats: false # dbt Labs'a kullanım istatistiği gönderme

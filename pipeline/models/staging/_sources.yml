@@ -1,0 +1,10 @@
+sources:
+  - name: raw
+    description: Scraper'ın yazdığı ham veri (scraper/sql/001_raw_job_postings.sql)
+    schema: raw
+    tables:
+      - name: job_postings
+        description: Her satır bir kaynaktaki bir ilan; (source, source_job_id) tekildir.
+        columns:
+          - name: id
+            data_tests: [unique, not_null]

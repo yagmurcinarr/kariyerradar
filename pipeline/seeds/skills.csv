@@ -1,0 +1,97 @@
+skill_id,skill_name,category,aliases,case_sensitive
+python,Python,programlama,python,false
+java,Java,programlama,java,false
+javascript,JavaScript,programlama,javascript|js|es6,false
+typescript,TypeScript,programlama,typescript,false
+csharp,C#,programlama,c#|c sharp,false
+cpp,C++,programlama,c++|cpp,false
+dotnet,.NET,programlama,.net|dotnet|asp.net|.net core,false
+go,Go,programlama,golang|go lang,false
+kotlin,Kotlin,programlama,kotlin,false
+swift,Swift,programlama,Swift|SwiftUI,true
+php,PHP,programlama,php|laravel,false
+ruby,Ruby,programlama,ruby|ruby on rails,false
+rust,Rust,programlama,Rust,true
+r_lang,R,programlama,r programming|rstudio|r language,false
+scala,Scala,programlama,scala,false
+sql,SQL,veri,sql|t-sql|pl/sql,false
+postgresql,PostgreSQL,veri,postgresql|postgres,false
+mysql,MySQL,veri,mysql,false
+mssql,SQL Server,veri,sql server|mssql,false
+mongodb,MongoDB,veri,mongodb|mongo,false
+redis,Redis,veri,redis,false
+elasticsearch,Elasticsearch,veri,elasticsearch|elastic search,false
+kafka,Kafka,veri,kafka,false
+spark,Spark,veri,Spark|PySpark|Apache Spark,true
+airflow,Airflow,veri,airflow,false
+dbt,dbt,veri,dbt,false
+etl,ETL,veri,etl|elt|data pipeline|veri hatti,false
+bigquery,BigQuery,veri,bigquery,false
+snowflake,Snowflake,veri,Snowflake,true
+excel,Excel,veri,Excel|EXCEL|Microsoft Excel|MS Excel,true
+power_bi,Power BI,veri,power bi|powerbi,false
+tableau,Tableau,veri,tableau,false
+looker,Looker,veri,looker|looker studio,false
+pandas,Pandas,veri,pandas,false
+numpy,NumPy,veri,numpy,false
+statistics,İstatistik,veri,statistics|statistical|istatistik,false
+data_analysis,Veri Analizi,veri,data analysis|data analytics|veri analizi|veri analitigi,false
+data_viz,Veri Görselleştirme,veri,data visualization|veri gorsellestirme|dashboard,false
+ab_testing,A/B Testi,veri,a/b test|a/b testing|ab testing,false
+machine_learning,Makine Öğrenmesi,yapay_zeka,machine learning|makine ogrenmesi,false
+deep_learning,Derin Öğrenme,yapay_zeka,deep learning|derin ogrenme,false
+nlp,NLP,yapay_zeka,nlp|natural language processing|dogal dil isleme,false
+llm,LLM / Üretken YZ,yapay_zeka,llm|llms|large language model|generative ai|genai|prompt engineering,false
+computer_vision,Bilgisayarlı Görü,yapay_zeka,computer vision|goruntu isleme,false
+tensorflow,TensorFlow,yapay_zeka,tensorflow,false
+pytorch,PyTorch,yapay_zeka,pytorch,false
+scikit_learn,scikit-learn,yapay_zeka,scikit-learn|sklearn,false
+aws,AWS,bulut_devops,aws|amazon web services,false
+azure,Azure,bulut_devops,azure,false
+gcp,Google Cloud,bulut_devops,gcp|google cloud,false
+docker,Docker,bulut_devops,docker,false
+kubernetes,Kubernetes,bulut_devops,kubernetes|k8s,false
+terraform,Terraform,bulut_devops,terraform,false
+linux,Linux,bulut_devops,linux|unix,false
+git,Git,bulut_devops,git|github|gitlab,false
+cicd,CI/CD,bulut_devops,ci/cd|ci cd|continuous integration|jenkins|github actions,false
+microservices,Mikroservis,bulut_devops,microservices|microservice|mikroservis,false
+react,React,web_mobil,React|ReactJS|React.js|react.js|reactjs,true
+react_native,React Native,web_mobil,react native,false
+angular,Angular,web_mobil,angular,false
+vue,Vue.js,web_mobil,vue|vue.js|vuejs,false
+nodejs,Node.js,web_mobil,node.js|nodejs|node js,false
+html_css,HTML/CSS,web_mobil,html|css|html5|css3,false
+rest_api,REST API,web_mobil,rest api|rest apis|restful|web api,false
+graphql,GraphQL,web_mobil,graphql,false
+ios,iOS,web_mobil,ios,false
+android,Android,web_mobil,android,false
+flutter,Flutter,web_mobil,flutter,false
+test_automation,Test Otomasyonu,web_mobil,test automation|test otomasyonu|selenium|cypress|appium,false
+unity,Unity,oyun,Unity|Unity3D|Unity 3D,true
+unreal,Unreal Engine,oyun,unreal engine|unreal,false
+game_design,Oyun Tasarımı,oyun,game design|level design|oyun tasarimi,false
+spine,Spine,oyun,Spine|Spine 2D,true
+blender,Blender,tasarim,blender,false
+figma,Figma,tasarim,figma,false
+photoshop,Photoshop,tasarim,photoshop,false
+illustrator,Illustrator,tasarim,illustrator,false
+after_effects,After Effects,tasarim,after effects,false
+ui_ux,UI/UX,tasarim,ui/ux|ux/ui|user experience|ux design|ui design|kullanici deneyimi,false
+seo,SEO,pazarlama,seo|search engine optimization,false
+google_ads,Google Ads,pazarlama,google ads|adwords|sem,false
+google_analytics,Google Analytics,pazarlama,google analytics|ga4,false
+social_media,Sosyal Medya,pazarlama,social media|sosyal medya,false
+digital_marketing,Dijital Pazarlama,pazarlama,digital marketing|performance marketing|dijital pazarlama|user acquisition,false
+crm,CRM,is,crm|salesforce|hubspot,false
+sap,SAP,is,SAP,true
+erp,ERP,is,erp,false
+agile,Agile/Scrum,is,scrum|kanban|agile methodology|agile methodologies|agile development|agile software|agile environment|agile team|agile teams|cevik yontem,false
+jira,Jira,is,jira|confluence,false
+project_management,Proje Yönetimi,is,project management|proje yonetimi,false
+product_management,Ürün Yönetimi,is,product management|product manager|urun yonetimi,false
+accounting,Muhasebe,finans,accounting|muhasebe|bookkeeping,false
+financial_analysis,Finansal Analiz,finans,financial analysis|financial modeling|finansal analiz,false
+ifrs,IFRS,finans,ifrs|ufrs|tfrs,false
+english,İngilizce,dil,english|ingilizce,false
+german,Almanca,dil,german|almanca,false

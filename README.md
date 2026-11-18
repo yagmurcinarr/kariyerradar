@@ -13,7 +13,18 @@ cp .env.example .env          # POSTGRES_PASSWORD ve DATABASE_URL'i düzenleyin
 docker compose up -d          # PostgreSQL + pgvector, host portu 5433
 pytest
 python -m scraper.run --source all   # ilanları topla → raw.job_postings
+python -m pipeline.run_dbt build     # dbt: seed + modeller + testler → staging, marts
 ```
+
+## Veri modeli (dbt)
+
+| Katman | Tablo | İçerik |
+|---|---|---|
+| staging | `stg_jobs` | Temizlenmiş ilanlar; şehir/ilçe ve iş türü (`staj`, `yeni_mezun`, `junior`, `diger`) |
+| marts | `fct_job` | İlan olgu tablosu |
+| marts | `dim_company` | Firma boyutu |
+| marts | `dim_skill` | ~100 becerilik sözlük ([seeds/skills.csv](pipeline/seeds/skills.csv)) |
+| marts | `bridge_job_skill` | İlan metninde geçen beceriler (regex, kelime sınırıyla) |
 
 ## Veri kaynakları
 

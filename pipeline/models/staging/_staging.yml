@@ -1,0 +1,17 @@
+models:
+  - name: stg_jobs
+    description: Temizlenmiş ilanlar; şehir/ilçe ve iş türü standartlaştırılmış.
+    columns:
+      - name: job_id
+        data_tests: [unique, not_null]
+      - name: url
+        data_tests: [not_null]
+      - name: city
+        description: İl adı (Türkçe), 'Uzaktan' veya 'Belirtilmemiş'
+        data_tests: [not_null]
+      - name: job_type
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [staj, yeni_mezun, junior, diger]
