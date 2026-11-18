@@ -21,8 +21,13 @@ from matching.embedder import E5Embedder, to_pgvector
 from matching.skills import extract_skills
 from scraper import db
 
-SKILL_WEIGHT = 0.4  # beceri örtüşmesinin nihai skordaki payı
-DEFAULT_CANDIDATES = 50
+SKILL_WEIGHT = 0.5  # beceri örtüşmesinin nihai skordaki payı
+DEFAULT_CANDIDATES = 100
+# İlan tarafı oranında paydaya eklenir: tek beceri isteyen ilan, tek eşleşmeyle tam puan almasın
+JOB_COVERAGE_SMOOTHING = 2
+# Sorgu tarafı oranı en fazla bu kadar beceri üzerinden hesaplanır: 20+ beceri içeren bir CV,
+# ilanın 5 becerisini karşılıyorsa bu zaten güçlü bir eşleşmedir.
+QUERY_SKILL_CAP = 5
 
 # <=> : cosine mesafe (0 = aynı yön). vector_score = 1 - mesafe.
 # Filtreler boşsa (NULL) uygulanmaz.
@@ -81,8 +86,8 @@ def rerank(
         job_skills = set(c.skills)
         matching = query_skills & job_skills
         if query_skills:
-            coverage = len(matching) / len(query_skills)
-            final = (1 - skill_weight) * vec_norm + skill_weight * coverage
+            overlap = skill_overlap(query_skills, job_skills)
+            final = (1 - skill_weight) * vec_norm + skill_weight * overlap
         else:
             final = vec_norm
         ranked.append(
@@ -95,6 +100,22 @@ def rerank(
         )
     ranked.sort(key=lambda m: (-m.score, -m.vector_score))
     return ranked[:k]
+
+
+def skill_overlap(query_skills: set[str], job_skills: set[str]) -> float:
+    """Beceri örtüşmesi (0–1): iki yönlü oranın ortalaması.
+
+    - sorgu tarafı: sorgudaki becerilerin ne kadarı ilanda var (kısa sorgularda belirleyici)
+    - ilan tarafı: ilanın istediği becerilerin ne kadarını sorgu/CV karşılıyor
+    Uzun CV'lerde sorgu tarafı payda QUERY_SKILL_CAP ile sınırlanır; yoksa 20+ beceri içeren
+    bir CV için bu oran her ilanda düşük kalır ve sıralamayı yine sadece vektör belirler.
+    """
+    if not query_skills:
+        return 0.0
+    matching = len(query_skills & job_skills)
+    query_side = min(1.0, matching / min(len(query_skills), QUERY_SKILL_CAP))
+    job_side = matching / (len(job_skills) + JOB_COVERAGE_SMOOTHING)
+    return (query_side + job_side) / 2
 
 
 def fetch_candidates(
