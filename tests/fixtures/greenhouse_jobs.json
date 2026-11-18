@@ -1,0 +1,34 @@
+{
+  "jobs": [
+    {
+      "id": 9000000001,
+      "title": "Junior Software Engineer",
+      "absolute_url": "https://job-boards.greenhouse.io/ornek/jobs/9000000001",
+      "location": {"name": "Sarıyer, İstanbul"},
+      "offices": [],
+      "first_published": "2026-10-14T06:43:00-04:00",
+      "updated_at": "2026-10-16T08:00:59-04:00",
+      "content": "&lt;p&gt;&lt;strong&gt;About us&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;We build mobile games.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;C# and Unity&lt;/li&gt;&lt;/ul&gt;"
+    },
+    {
+      "id": 9000000002,
+      "title": "Sales Manager",
+      "absolute_url": "https://job-boards.greenhouse.io/ornek/jobs/9000000002",
+      "location": {"name": "Remote"},
+      "offices": [{"name": "Ankara Office", "location": "Ankara, Türkiye"}],
+      "first_published": null,
+      "updated_at": "2026-10-01T10:00:00+00:00",
+      "content": "&lt;p&gt;Sales role.&lt;/p&gt;"
+    },
+    {
+      "id": 9000000003,
+      "title": "Backend Engineer",
+      "absolute_url": "https://job-boards.greenhouse.io/ornek/jobs/9000000003",
+      "location": {"name": "Vancouver, Canada"},
+      "offices": [],
+      "first_published": "2026-10-01T10:00:00+00:00",
+      "updated_at": "2026-10-01T10:00:00+00:00",
+      "content": "&lt;p&gt;Canada role.&lt;/p&gt;"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "11111111-aaaa-4bbb-8ccc-000000000001",
+    "text": "Data Analyst Intern",
+    "country": "TR",
+    "createdAt": 1793000000000,
+    "hostedUrl": "https://jobs.lever.co/ornek/11111111-aaaa-4bbb-8ccc-000000000001",
+    "categories": {
+      "commitment": "Intern",
+      "location": "Istanbul / Maslak",
+      "allLocations": ["Istanbul / Maslak"],
+      "team": "Data"
+    },
+    "description": "<div>We are looking for a <strong>Data Analyst Intern</strong> to join our team.</div>",
+    "lists": [
+      {
+        "text": "Requirements",
+        "content": "<li>Good knowledge of <b>SQL</b> and Python</li><li>Familiarity with Power BI</li>"
+      }
+    ],
+    "additional": "<div>Questions? Contact ayse.yilmaz@ornek.com or call +90 532 123 45 67.</div>"
+  },
+  {
+    "id": "11111111-aaaa-4bbb-8ccc-000000000002",
+    "text": "Account Lead",
+    "country": "SA",
+    "createdAt": 1793000000000,
+    "hostedUrl": "https://jobs.lever.co/ornek/11111111-aaaa-4bbb-8ccc-000000000002",
+    "categories": {"commitment": "Full-time", "location": "Riyadh", "allLocations": ["Riyadh"]},
+    "description": "<div>Riyadh role.</div>",
+    "lists": [],
+    "additional": ""
+  }
+]

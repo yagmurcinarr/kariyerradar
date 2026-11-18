@@ -1,0 +1,32 @@
+{
+  "name": "Ornek Games",
+  "description": null,
+  "jobs": [
+    {
+      "title": "Game Design Intern",
+      "shortcode": "ABC123DEF4",
+      "employment_type": "Internship",
+      "url": "https://apply.workable.com/j/ABC123DEF4",
+      "published_on": "2026-11-05",
+      "created_at": "2026-11-05",
+      "country": "Turkey",
+      "city": "Istanbul",
+      "state": "İstanbul",
+      "locations": [{"country": "Turkey", "countryCode": "TR", "city": "Istanbul", "region": "İstanbul"}],
+      "description": "<p>We are hiring a <strong>Game Design Intern</strong> for our Levent office.</p><p>Responsibilities</p><ul><li>Balance levels</li></ul>"
+    },
+    {
+      "title": "Network Engineer",
+      "shortcode": "ZZZ999YYY8",
+      "employment_type": "Full-time",
+      "url": "https://apply.workable.com/j/ZZZ999YYY8",
+      "published_on": "2026-11-01",
+      "created_at": "2026-11-01",
+      "country": "Lithuania",
+      "city": "Vilnius",
+      "state": "",
+      "locations": [{"country": "Lithuania", "countryCode": "LT", "city": "Vilnius"}],
+      "description": "<p>Vilnius role.</p>"
+    }
+  ]
+}
