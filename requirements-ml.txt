@@ -1,0 +1,6 @@
+# Embedding ve eşleştirme bağımlılıkları (Aşama 5+).
+# Ayrı tutuluyor: torch büyük bir paket; CI ve dashboard'un buna ihtiyacı yok.
+# Sadece CPU sürümü (GitHub Actions'ta ~200 MB yerine ~2 GB'lık CUDA paketlerini indirmemek için):
+#   pip install -r requirements-ml.txt --extra-index-url https://download.pytorch.org/whl/cpu
+-r requirements.txt
+sentence-transformers==6.3.0

@@ -30,13 +30,23 @@ jobs:
           cache: pip
 
       - name: Bağımlılıkları kur
-        run: pip install -r requirements.txt
+        # torch'un sadece CPU sürümü (CUDA paketlerini indirmemek için)
+        run: pip install -r requirements-ml.txt --extra-index-url https://download.pytorch.org/whl/cpu
+
+      # Embedding modelini her gün yeniden indirmemek için önbellek
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-multilingual-e5-small
 
       - name: İlanları topla
         run: python -m scraper.run --source all
 
       - name: dbt build (seed + modeller + testler)
         run: python -m pipeline.run_dbt build
+
+      - name: Yeni ilanların embedding'ini üret
+        run: python -m matching.embed_jobs
 
       - name: Özet
         run: |
@@ -47,7 +57,11 @@ jobs:
               today = conn.execute(
                   "select count(*) from raw.job_postings where scraped_at::date = current_date"
               ).fetchone()[0]
-          summary = f"### KariyerRadar\n- Toplam ilan: **{total}**\n- Bugün görülen: **{today}**\n"
+              embedded = conn.execute("select count(*) from ml.job_embeddings").fetchone()[0]
+          summary = (
+              f"### KariyerRadar\n- Toplam ilan: **{total}**\n- Bugün görülen: **{today}**\n"
+              f"- Embedding'i olan ilan: **{embedded}**\n"
+          )
           with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as f:
               f.write(summary)
           print(summary)
