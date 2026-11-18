@@ -1,0 +1,47 @@
+# Her push ve PR'da kod kalitesi: ruff + pytest.
+# Entegrasyon testleri için geçici bir PostgreSQL (pgvector) servisi açılır.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_USER: stajradar
+          POSTGRES_PASSWORD: ci_password
+          POSTGRES_DB: stajradar
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U stajradar"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      DATABASE_URL: postgresql://stajradar:ci_password@localhost:5432/stajradar
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Bağımlılıkları kur
+        run: pip install -r requirements.txt
+
+      - name: Ruff (lint + format)
+        run: |
+          ruff check .
+          ruff format --check .
+
+      - name: Pytest
+        run: pytest

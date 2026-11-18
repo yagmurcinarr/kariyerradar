@@ -1,0 +1,54 @@
+# Günlük veri hattı: ilanları topla → dbt ile dönüştür ve test et.
+# Bağlantı adresi GitHub Secrets'taki DATABASE_URL'den gelir (Neon).
+name: Günlük veri hattı
+
+on:
+  schedule:
+    - cron: "0 3 * * *" # 03:00 UTC = 06:00 Türkiye saati
+  workflow_dispatch: # Actions sekmesinden elle tetiklenebilsin
+
+# Aynı anda iki çalıştırma olmasın (ör. elle tetikleme + zamanlanmış)
+concurrency:
+  group: daily-pipeline
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Bağımlılıkları kur
+        run: pip install -r requirements.txt
+
+      - name: İlanları topla
+        run: python -m scraper.run --source all
+
+      - name: dbt build (seed + modeller + testler)
+        run: python -m pipeline.run_dbt build
+
+      - name: Özet
+        run: |
+          python - <<'EOF'
+          import psycopg, os
+          with psycopg.connect(os.environ["DATABASE_URL"]) as conn:
+              total = conn.execute("select count(*) from marts.fct_job").fetchone()[0]
+              today = conn.execute(
+                  "select count(*) from raw.job_postings where scraped_at::date = current_date"
+              ).fetchone()[0]
+          summary = f"### StajRadar\n- Toplam ilan: **{total}**\n- Bugün görülen: **{today}**\n"
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as f:
+              f.write(summary)
+          print(summary)
+          EOF
