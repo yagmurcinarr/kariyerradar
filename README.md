@@ -3,7 +3,12 @@
 Türkiye'deki iş ilanlarını her gün toplayan veri hattı ve CV'ye göre ilan öneren yapay zekâ asistanı.
 Öğrenci ve yeni mezunlar için staj, yeni mezun ve junior ilanlarına odaklanır.
 
-> 🚧 Geliştirme aşamasında. Ayrıntılı plan: [CLAUDE.md](CLAUDE.md)
+[![CI](https://github.com/yagmurcinarr/kariyerradar/actions/workflows/ci.yml/badge.svg)](https://github.com/yagmurcinarr/kariyerradar/actions/workflows/ci.yml)
+[![Günlük veri hattı](https://github.com/yagmurcinarr/kariyerradar/actions/workflows/daily_pipeline.yml/badge.svg)](https://github.com/yagmurcinarr/kariyerradar/actions/workflows/daily_pipeline.yml)
+
+**🔗 Canlı demo:** https://kariyerradar-jyunakkgmtsje9pwbolycs.streamlit.app/
+
+> Ayrıntılı plan ve mimari: [CLAUDE.md](CLAUDE.md)
 
 ## Hızlı başlangıç (lokal)
 
