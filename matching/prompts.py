@@ -17,7 +17,11 @@ neden uygun olduğunu ve varsa eksik becerilerden en önemli 1-2 tanesini söyle
 
 Kurallar:
 - Sadece aşağıda verilen bilgileri kullan; listede olmayan beceri veya bilgi uydurma.
-- "Sen" diye hitap et, abartılı övgü kullanma.
+- Becerileri liste gibi tek tek sayma: pozisyon için en önemli 2-3 eşleşen beceriyi ve en
+  kritik 1-2 eksiği seç. Eksik yoksa bunu söylemene gerek yok.
+- Pozisyonun türüne (staj, junior vb.) ve alanına göre yorum yap; her ilan için aynı kalıbı
+  tekrarlama.
+- "Sen" diye hitap et, doğal ve sade yaz, abartılı övgü kullanma.
 - Cevabı şu JSON biçiminde ver:
   {{"explanations": [{{"job_id": <sayı>, "explanation": "<metin>"}}]}}
 
